@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>todos app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Todos</h1>
+      <input id="search-text" type="text" placeholder="Filter todos" />
+      <label> <input type="checkbox" id="hide-completed" /> Hide completed </label>
+      <div id="todos"></div>
+      <form id="new-todo">
+        <input type="text" placeholder="Something to do" name="text" />
+        <button>Add Todo</button>
+      </form>
+    </div>
+    <script src="uuidv4.js"></script>
+    <script src="todo-functions.js"></script>
+    <script src="todo-app.js"></script>
+  </body>
+</html>
