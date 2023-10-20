@@ -19,7 +19,7 @@ const toogleTodo = id => {
 };
 
 // Fetch existing todos from localStorage
-const getSavedTodos = function () {
+const getSavedTodos = () => {
   const todosJSON = localStorage.getItem('todos');
 
   if (todosJSON !== null) {
@@ -30,13 +30,13 @@ const getSavedTodos = function () {
 };
 
 // Save to localStorage
-const saveTodos = function (todos) {
+const saveTodos = todos => {
   localStorage.setItem('todos', JSON.stringify(todos));
 };
 
 // Render application todos based on filters
-const renderTodos = function (todos, filters) {
-  const filteredTodos = todos.filter(function (todo) {
+const renderTodos = (todos, filters) => {
+  const filteredTodos = todos.filter(todo => {
     const searchTextMatch = todo.text
       .toLowerCase()
       .includes(filters.searchText.toLowerCase());
@@ -44,7 +44,7 @@ const renderTodos = function (todos, filters) {
     return searchTextMatch && hideCompletedMatch;
   });
 
-  const incompleteTodos = filteredTodos.filter(function (todo) {
+  const incompleteTodos = filteredTodos.filter(todo => {
     return !todo.completed;
   });
 
@@ -53,13 +53,13 @@ const renderTodos = function (todos, filters) {
     .querySelector('#todos')
     .appendChild(generateSummaryDOM(incompleteTodos));
 
-  filteredTodos.forEach(function (todo) {
+  filteredTodos.forEach(todo => {
     document.querySelector('#todos').appendChild(generateTodoDOM(todo));
   });
 };
 
 // Get the DOM elements for an individual note
-const generateTodoDOM = function (todo) {
+const generateTodoDOM = todo => {
   const divCreate = document.createElement('div');
   const someNote = document.createElement('input');
   const spancreate = document.createElement('span');
@@ -90,7 +90,7 @@ const generateTodoDOM = function (todo) {
 };
 
 // Get the DOM elements for list summary
-const generateSummaryDOM = function (incompleteTodos) {
+const generateSummaryDOM = incompleteTodos => {
   const summary = document.createElement('h2');
   summary.textContent = `You have ${incompleteTodos.length} todos left`;
   return summary;
